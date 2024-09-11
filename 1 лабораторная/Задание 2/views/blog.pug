@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  main
+    h2 
+      strong Восстание пингвинов
+    li Дата публикации: 1 января 2023
+    p К 2050 году ожидается значительный рост популяции пингвинов, что может привести к захвату ими северного полюса!
+    img(src="https://i.pinimg.com/564x/49/c0/23/49c023b95db34cc5f162fd0285476707.jpg")
+  
+  aside
+    h3 Последние статьи
+    ul
+      li: a(href='/article-1')
+        .image-container
+          img(src='/pics/2.jpg', alt='Заголовок Статьи 1', class='article-image' width=200 height=200)
+          h2 Вышла новая часть Fatal Frame!
+      li: a(href='/article-2')
+        .image-container
+          img(src='/pics/3.jpg', alt='Заголовок Статьи 2', class='article-image' width=200 height=200)
+          h2 Анонсировано продолжение Класса Превосходства
+      li: a(href='/article-3')
+        .image-container
+          img(src='/pics/4.jpg', alt='Заголовок Статьи 3', class='article-image' width=200 height=200)
+          h2 Лучшие игровые места
