@@ -1,0 +1,61 @@
+html
+  head
+    title Задачи
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .task-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .task-card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .task-card h3 {
+        margin: 10px 0 5px;
+      }
+      .task-card p {
+        text-align: center;
+      }
+      .button {
+        margin-top: 10px;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .button-complete {
+        background-color: green;
+        color: white;
+      }
+      .button-delete {
+        background-color: red;
+        color: white;
+      }
+
+  body
+    h1 Задачи
+    form(action="/add-task", method="POST")
+      input(type="text" name="task" class="task-input" placeholder="Введите новую задачу" required)
+      button(type="submit") Добавить задачу
+
+    ul
+      each task, index in tasks
+        li
+          .task-card
+            h3 #{task.name}
+            p #{task.description}
+            form(action='/complete-task/' + index, method="POST", style="display:inline")
+              button(type="submit" class="button button-complete") Пометить как выполненную
+            form(action='/delete-task/' + index, method="POST", style="display:inline")
+              button(type="submit" class="button button-delete") Удалить       
