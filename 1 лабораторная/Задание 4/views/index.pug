@@ -1,0 +1,46 @@
+html
+  head
+    title Форма обратной связи
+    link(rel="stylesheet" href="/styles.css")
+  body
+    h1 Обратная связь
+
+    form(action="/send-feedback" method="POST")
+      div
+        label(for="name") Имя:
+        input(type="text" id="name" name="name" required)
+
+      div
+        label(for="email") Email:
+        input(type="email" id="email" name="email" required)
+
+      div
+        label(for="subject") Тема:
+        input(type="text" id="subject" name="subject" required)
+
+      div
+        label(for="message") Сообщение:
+        textarea(id="message" name="message" required)
+
+      div
+        label Тип запроса:
+        div
+          input(type="radio" id="question" name="type" value="question" required)
+          label(for="question") Вопрос
+        div
+          input(type="radio" id="feedback" name="type" value="feedback")
+          label(for="feedback") Отзыв
+        div
+          input(type="radio" id="complaint" name="type" value="complaint")
+          label(for="complaint") Жалоба
+
+      div
+        input(type="checkbox" id="newsletter" name="newsletter")
+        label(for="newsletter") Подписаться на рассылку новостей
+
+      div
+        button(type="submit") Отправить
+
+    if message
+      div.message(class= isSuccess ? 'success' : 'error')
+        | #{message}
